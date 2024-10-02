@@ -1,0 +1,53 @@
+<div class="container-lg UserContainer">
+  <h2>設定</h2>
+  <div class="row">
+    <div class="col-3">
+      <%= render "shared/sidenavi" %>
+    </div>
+    <div class="col-9">
+      <h3 class="mb-3">アカウント</h3>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <table class="table">
+          <tr class="row">
+            <th class="col-4"><%= f.label :email, class: "form-label Write_Required" %></th>
+            <td class="col-8">
+              <%= f.email_field :email, class: "form-control", placeholder: "メールアドレスを入力", autofocus: true, autocomplete: "email" %>
+              <%= render "devise/shared/error_messages", object: resource, key: "email" %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th class="col-4">
+              <%= f.label :password, class: "form-label" %>
+              <p class="Label_Text">※変更する場合のみ</p>
+            </th>
+            <td class="col-8">
+              <%= f.password_field :password, class: "form-control", placeholder: "変更後パスワードを入力", autocomplete: "new-password" %>
+              <%= render "devise/shared/error_messages", object: resource, key: "password" %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th class="col-4">
+              <%= f.label :password_confirmation, class: "form-label" %>
+              <p class="Label_Text">※変更する場合のみ</p>
+            </th>
+            <td class="col-8">
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "変更後パスワードを入力", autocomplete: "new-password" %>
+              <%= render "devise/shared/error_messages", object: resource, key: "password_confirmation" %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th class="col-4"><%= f.label :current_password, class: "form-label Write_Required" %></th>
+            <td class="col-8">
+              <%= f.password_field :current_password, class: "form-control", placeholder: "現在のパスワードを入力", autocomplete: "current-password" %>
+              <%= render "devise/shared/error_messages", object: resource, key: "current_password" %>
+            </td>
+          </tr>
+        </table>
+        <div class="actions d-flex justify-content-end">
+          <%= link_to "キャンセル", users_path, class: "btn btn-secondary btn-lg" %>
+          <%= f.submit "保存", class:"btn btn-primary btn-lg mx-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

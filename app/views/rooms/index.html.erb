@@ -1,0 +1,46 @@
+<div class="container-lg table-responsive RoomsContainer">
+  <h2>施設一覧</h2>
+  <table class="table align-middle table-hover Table_details">
+    <thead>
+      <tr>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>宿泊料金（/日）</th>
+        <th>作成日</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td>
+            <%= link_to room_path(room) do %>
+              <%= image_tag room.img.url, alt: "施設画像", width: "120", height: "80" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to room_path(room), class: "Name_Link" do %>
+              <%= room.name %>
+            <% end %>
+          </td>
+          <td><%= room.introduction %></td>
+          <td><%= number_to_currency(room.cost, :locale => "ja") %></td>
+          <td><%= l room.created_at, format: :short %></td>
+          <td>
+            <div class="dropdown">
+              <button class="btn" id="Dropdown_item" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="Dropdown_item">
+                <li><%= link_to "編集", edit_room_path(room), class: "dropdown-item" %></li>
+                <div class="dropdown-divider"></div>
+                <li><%= link_to "削除", room_path(room), method: :delete, class: "dropdown-item text-danger", data: {confirm: "登録施設を削除しますか？"} %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

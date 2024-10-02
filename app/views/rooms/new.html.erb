@@ -1,0 +1,45 @@
+<div class="Container">
+  <div class="Room_Form_Container">
+      <h2 class="mb-3">施設登録</h2>
+      <%= form_with model: @room do |f| %>
+        
+        <div class="field mb-3">
+          <%= f.label :name, class: "form-label Write_Required" %>
+          <%= f.text_field :name, class: "form-control", placeholder: "施設名を入力", autofocus: true %>
+          <%= render "devise/shared/error_messages", object: @room, key: "name" %>
+        </div>
+      
+        <div class="field mb-3">
+          <%= f.label :introduction, class: "form-label Write_Required" %>
+          <%= f.text_area :introduction, class: "form-control", placeholder: "紹介文を入力" %>
+          <%= render "devise/shared/error_messages", object: @room, key: "introduction" %>
+        </div>
+      
+        <div class="field mb-3">
+          <%= f.label :cost, class: "form-label Write_Required" %>
+          <%= f.number_field :cost, class: "form-control", placeholder: "宿泊料金（/日）を入力" %>
+          <%= render "devise/shared/error_messages", object: @room, key: "cost" %>
+        </div>
+      
+        <div class="field mb-3">
+          <%= f.label :address, class: "form-label Write_Required" %>
+          <%= f.text_field :address, class: "form-control", placeholder: "住所を入力" %>
+          <%= render "devise/shared/error_messages", object: @room, key: "address" %>
+        </div>
+
+        <div class="field mb-4">
+          <%= f.label :img, class: "form-label" %>
+          <%= f.file_field :img, class: "form-control" %>
+          <%= f.hidden_field :img_cache %>
+          <%= render "devise/shared/error_messages", object: @room, key: "img" %>
+        </div>
+
+        <%= f.hidden_field :user_id, value: @user.id %>
+      
+        <div class="actions mb-3">
+          <%= f.submit "新しい施設を登録", class: "btn btn-primary w-100" %>
+        </div>
+      <% end %>
+      <%= link_to "キャンセル", :back, class: "btn btn-secondary w-100" %>
+  </div>
+</div>

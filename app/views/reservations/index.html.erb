@@ -1,0 +1,50 @@
+<div class="container-lg table-responsive ReservationsContainer">
+  <h2>予約一覧</h2>
+  <table class="table align-middle table-hover Table_details">
+    <thead>
+      <tr>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>合計料金</th>
+        <th>チェックイン日</th>
+        <th>チェックアウト日</th>
+        <th>予約確定日時</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <td>
+            <%= link_to room_path(reservation.room) do %>
+              <%= image_tag reservation.room.img.url, alt: "施設画像", width: "120", height: "80" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to room_path(reservation.room), class: "Name_Link" do %>
+              <%= reservation.room.name %>
+            <% end %>
+          </td>
+          <td><%= reservation.room.introduction %></td>
+          <td><%= number_to_currency(reservation.total_cost, :locale => "ja") %></td>
+          <td><%= l reservation.checkin_date %></td>
+          <td><%= l reservation.checkout_date %></td>
+          <td><%= l reservation.created_at %></td>
+          <td>
+            <div class="dropdown">
+              <button class="btn" id="Dropdown_item" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="Dropdown_item">
+                <li><%= link_to "再予約", edit_reservation_path(reservation), class: "dropdown-item" %></li>
+                <div class="dropdown-divider"></div>
+                <li><%= link_to "削除", reservation_path(reservation), method: :delete, class: "dropdown-item text-danger", data: {confirm: "予約を削除しますか？"} %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,45 @@
+<div class="container-lg UserContainer">
+  <h2>設定</h2>
+  <div class="row">
+    <div class="col-3">
+      <%= render "shared/sidenavi" %>
+    </div>
+    <div class="col-9">
+      <h3 class="mb-3">プロフィール</h3>
+      <%= form_with model: @user, url: users_profile_path do |f| %>
+        <table class="table">
+          <tr class="row">
+            <th class="col-4"><%= f.label :img, class: "form-label" %></th>
+            <td class="col-8">
+              <%= image_tag @user.img.url, class: "rounded-circle mb-3", alt: "アイコン画像", width: "80", height: "80" %>
+              <%= f.file_field :img, class: "form-control", placeholder: "画像アップロード", autofocus: true %>
+              <%= f.hidden_field :img_cache %>
+              <%= render "devise/shared/error_messages", object: @user, key: "img" %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th class="col-4">
+              <%= f.label :name, class: "form-label Write_Required" %>
+            </th>
+            <td class="col-8">
+              <%= f.text_field :name, class: "form-control" %>
+              <%= render "devise/shared/error_messages", object: @user, key: "name" %>
+            </td>
+          </tr>
+          <tr class="row">
+            <th class="col-4">
+              <%= f.label :introduction, class: "form-label" %>
+            </th>
+            <td class="col-8">
+              <%= f.text_area :introduction, class: "form-control" %>
+            </td>
+          </tr>
+        </table>
+        <div class="actions d-flex justify-content-end">
+          <%= link_to "キャンセル", users_profile_path, class: "btn btn-secondary btn-lg" %>
+          <%= f.submit "保存", class:"btn btn-primary btn-lg mx-3" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

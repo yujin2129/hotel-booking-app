@@ -1,0 +1,50 @@
+<%= render "shared/search" %>
+<div class="container-lg DetailsContainer">
+  <div class="d-flex justify-content-between mb-3">
+    <%= link_to :back, class: "btn" do %>
+      <i class="bi bi-backspace"></i>
+      <span>戻る</span>
+    <% end %>
+    <% if @room.user_id == current_user.id %>
+      <%= link_to edit_room_path(@room), class: "btn btn-primary" do %>
+        <i class="bi bi-pencil"></i>
+        <span>編集</span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-lg-5">
+      <%= image_tag @room.img.url, class: "w-100", alt: "施設画像" %>
+    </div>
+    <div class="col-lg-7 bg-light mt-3 mt-lg-0 p-4">
+      <div class="d-flex justify-content-between">
+        <p class="fs-3 fw-medium text-muted"><%= @room.name %></p>
+        <p class="fs-3 fw-medium text-danger"><%= "#{number_to_currency(@room.cost, :locale => "ja")}~" %></p>
+      </div>
+      <p class="text-secondary"><%= @room.address %></p>
+      <p><%= @room.introduction %></p>
+      <%= form_with(model:@reservation, url:confirm_reservations_path) do |f| %>
+        <div class="row bg-white p-4 mx-3 mb-4">
+          <div class="col-lg-4">
+            <%= f.label :checkin_date, class: "form-label Write_Required" %>
+            <%= f.date_field :checkin_date, class: "form-control" %>
+            <%= render "devise/shared/error_messages", object: @reservation, key: "checkin_date" %>
+          </div>
+          <div class="col-lg-4">
+            <%= f.label :checkout_date, class: "form-label Write_Required" %>
+            <%= f.date_field :checkout_date, class: "form-control" %>
+            <%= render "devise/shared/error_messages", object: @reservation, key: "checkout_date" %>
+          </div>
+          <div class="col-lg-4">
+            <%= f.label :number_of_people, class: "form-label Write_Required" %>
+            <%= f.number_field :number_of_people, class: "form-control", placeholder: "0" %>
+            <%= render "devise/shared/error_messages", object: @reservation, key: "number_of_people" %>
+          </div>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "予約する", class:"btn btn-primary w-100" %>
+      <% end %>
+    </div>
+  </div>
+</div>

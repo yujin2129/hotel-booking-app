@@ -1,0 +1,138 @@
+body{
+  min-width: 500px;
+}
+.Navbar{
+  background-color: #1c1d3b;
+  height: 100px;
+}
+.container-fluid{
+  max-width: 1440px;
+  padding: 0 32px;
+}
+.Potepan_Header_logo{
+  width: 221px;
+}
+.Footer{
+  background-color: #1c1d3b;
+  height: 465px;
+}
+.Potepan_Footer_logo{
+  width: 294px;
+}
+.Footer_text{
+  color: white;
+}
+.Container{
+  background-color: #dfe2e6;
+  padding: 60px 0;
+}
+.notice{
+  max-width: 400px;
+  margin: 16px auto 0;
+}
+.Write_Required::after{
+  content: "*";
+  color: #ff4949;
+  font-size: 20px;
+  margin-left: 4px;
+}
+.Name_Link{
+  text-decoration: none;
+}
+.Table_details{
+  font-size: 11px;
+}
+.DetailsContainer{
+  margin-top: 40px;
+  margin-bottom: 260px;
+}
+.Top_View{
+  background-image: url(cover-lg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 750px;
+  padding-top: 80px;
+  margin-bottom: 180px;
+}
+.Search_Title{
+  color: white;
+  font-size: 84px;
+  font-weight: 400;
+  margin-bottom: 48px;
+  text-align: center;
+}
+.Search_Form{
+  margin: auto;
+  padding: 32px;
+  width: 704px;
+}
+.Search_Form_Field{
+  height: 58px;
+  width: 100%;
+}
+.RecommendArea_Container{
+  margin-bottom: 260px;
+}
+.RecommendArea_Title{
+  border-bottom: 3px solid #ff7757;
+  font-size: 44px;
+  line-height: 66px;
+  margin-bottom: 140px;
+  padding-bottom: 15px;
+  width: fit-content;
+}
+.Aria_Tokyo{
+  background-image: url(tokyo.jpg);
+}
+.Aria_Osaka{
+  background-image: url(osaka.jpg);
+}
+.Aria_Kyoto{
+  background-image: url(kyoto.jpg);
+}
+.Aria_Sapporo{
+  background-image: url(sapporo.jpg);
+}
+.RecommendArea_Link{
+  background-size: cover;
+  background-position: center;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  height: 455px;
+  justify-content: flex-end;
+  padding: 40px 24px;
+  width: 100%;
+  text-decoration: none;
+}
+.RecommendArea_Link_Title{
+  font-size: 28px;
+  line-height: 42px;
+  color: white;
+  font-weight: 400;
+}
+.Search_Top{
+  height: 125px;
+}
+.Search_Top_Form{
+  display: flex;
+  margin: auto;
+  width: fit-content;
+  gap: 16px;
+}
+.Search_Top_Form_Contol_Container{
+  position: relative;
+}
+.Search_Top_Form_Contol_Icon{
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+.Search_Top_Form_Contol{
+  height: 45px;
+  width: 285px;
+}
+.Search_Top_Form_Button{
+  height: 45px;
+  width: 100px;
+}

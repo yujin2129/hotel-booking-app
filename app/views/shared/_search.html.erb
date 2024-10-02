@@ -1,0 +1,13 @@
+<div class="Search_Top d-flex bg-secondary">
+  <%= form_with class: "Search_Top_Form", url: searches_search_path, method: :get do |f| %>
+    <div class="Search_Top_Form_Contol_Container">
+      <i class="bi bi-geo-alt-fill Search_Top_Form_Contol_Icon"></i>
+      <%= f.search_field :address_word, class: "form-control ps-5 Search_Top_Form_Contol", placeholder: "エリア名を入力" %>
+    </div>
+    <div class="Search_Top_Form_Contol_Container">
+      <i class="bi bi-search Search_Top_Form_Contol_Icon"></i>
+      <%= f.search_field :word, class: "form-control ps-5 Search_Top_Form_Contol", placeholder: "キーワード名を入力" %>
+    </div>
+    <%= f.submit "検索", class: "btn btn-primary Search_Top_Form_Button" %>
+  <% end %>
+</div>
