@@ -1,0 +1,47 @@
+<div class="Top_View">
+  <div class="container">
+    <h2 class="Search_Title">
+      Potepan Shareで<br>
+      まだ体験したことのない<br>
+      旅をしよう
+    </h2>
+    <div class="Search_Form">
+      <%= form_with url: searches_search_path, method: :get do |f| %>
+        <%= f.text_field :address_word, class: "form-control mb-3 Search_Form_Field", placeholder: "エリアを検索" %>
+        <%= f.hidden_field :word %>
+        <%= f.submit "検索", class: "btn btn-primary Search_Form_Field" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="RecommendArea_Container">
+    <h2 class="RecommendArea_Title">おすすめのエリア</h2>
+    <div class="row">
+      <div class="col-6 col-lg-3 mt-3">
+        <%= link_to searches_search_path(address_word: "東京", word: nil), class: "Aria_Tokyo RecommendArea_Link" do %>
+          <span class="RecommendArea_Link_Title">東京</span>
+          <span class="RecommendArea_Link_Title"><i class="bi bi-geo-alt-fill"></i>Tokyo</span>
+        <% end %>
+      </div>
+      <div class="col-6 col-lg-3 mt-3">
+        <%= link_to searches_search_path(address_word: "大阪", word: nil), class: "Aria_Osaka RecommendArea_Link" do %>
+          <span class="RecommendArea_Link_Title">大阪</span>
+          <span class="RecommendArea_Link_Title"><i class="bi bi-geo-alt-fill"></i>Osaka</span>
+        <% end %>
+      </div>
+      <div class="col-6 col-lg-3 mt-3">
+        <%= link_to searches_search_path(address_word: "京都", word: nil), class: "Aria_Kyoto RecommendArea_Link" do %>
+          <span class="RecommendArea_Link_Title">京都</span>
+          <span class="RecommendArea_Link_Title"><i class="bi bi-geo-alt-fill"></i>Kyoto</span>
+        <% end %>
+      </div>
+      <div class="col-6 col-lg-3 mt-3">
+        <%= link_to searches_search_path(address_word: "札幌", word: nil), class: "Aria_Sapporo RecommendArea_Link" do %>
+          <span class="RecommendArea_Link_Title">札幌</span>
+          <span class="RecommendArea_Link_Title"><i class="bi bi-geo-alt-fill"></i>Sapporo</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

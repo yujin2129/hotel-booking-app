@@ -1,0 +1,21 @@
+.Room_Form_Container{
+  background-color: #fff;
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
+  padding: 30px;
+}
+.RoomsContainer{
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+.Room_Card_Body{
+  height: fit-content;
+}
+.Room_Card_Image{
+  height: 250px;
+}
+.Room_Card_Body_Introduction{
+  height: 85px;
+  overflow: scroll;
+}

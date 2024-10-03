@@ -1,0 +1,46 @@
+ja:
+  errors:
+    messages:
+      carrierwave_processing_error: 処理できませんでした
+      carrierwave_integrity_error: は許可されていないファイルタイプです
+      carrierwave_download_error: はダウンロードできません
+      extension_whitelist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      extension_blacklist_error: "%{extension}ファイルのアップロードは許可されていません。アップロードできないファイルタイプ: %{prohibited_types}"
+      content_type_whitelist_error: "%{content_type}ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: %{allowed_types}"
+      content_type_blacklist_error: "%{content_type}ファイルのアップロードは許可されていません"
+      rmagick_processing_error: "rmagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      mini_magick_processing_error: "MiniMagickがファイルを処理できませんでした。画像を確認してください。エラーメッセージ: %{e}"
+      min_size_error: "を%{min_size}以上のサイズにしてください"
+      max_size_error: "を%{max_size}以下のサイズにしてください"
+  
+  activerecord:
+    models:
+      room: 施設
+      reservation: 予約
+    attributes:
+      room:
+        name: 施設名
+        introduction: 紹介文
+        cost: 宿泊料金（/日）
+        address: 住所
+        img: 施設画像
+      reservation:
+        checkin_date: チェックイン日
+        checkout_date: チェックアウト日
+        number_of_people: 人数
+  
+  date:
+    formats:
+      default: "%Y/%m/%d"
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%Y/%m/%d"
+
+  number:
+    currency:
+      format:
+        unit: "¥"
+        format: "%u%n"
+        precision: 0

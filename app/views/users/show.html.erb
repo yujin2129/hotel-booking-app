@@ -1,0 +1,27 @@
+<div class="container-lg UserContainer">
+  <h2>設定</h2>
+  <div class="row">
+    <div class="col-3">
+      <%= render "shared/sidenavi" %>
+    </div>
+    <div class="col-9">
+      <div class="Account_Title mb-3">
+        <h3>アカウント</h3>
+        <%= link_to edit_user_registration_path, class: "btn btn-primary" do %>
+          <i class="bi bi-pencil"></i>
+          <span>編集</span>
+        <% end %> 
+      </div>
+      <table class="table">
+        <tr class="row">
+          <th class="col-4">メールアドレス</th>
+          <td class="col-8"><%= @user.email %></td>
+        </tr>
+        <tr class="row">
+          <th class="col-4">パスワード</th>
+          <td class="col-8">*********</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

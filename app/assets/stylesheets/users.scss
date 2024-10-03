@@ -1,0 +1,43 @@
+.FormContainer{
+  background-color: #fff;
+  max-width: 500px;
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+}
+.SideNavi{
+  list-style: none;
+  padding-left: 0;
+}
+.SideNavi_Item{
+  border: 1px solid #dfe2e6;
+  padding: 20px 24px;
+}
+.SideNavi_Item_Link{
+  text-decoration: none;
+  color: #333;
+}
+.SideNavi_Item_Link:active{
+  color: #ff7757;
+}
+.UserContainer{
+  margin-top: 40px;
+  margin-bottom: 140px;
+}
+.Account_Title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Label_Text{
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.error_message{
+  font-size: 12px;
+  font-weight: 500;
+  color: red;
+  margin-top: 8px;
+  margin-bottom: 0;
+}

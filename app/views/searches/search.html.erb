@@ -1,0 +1,22 @@
+<%= render "shared/search" %>
+<div class="container RoomsContainer">
+  <p class="fs-4">検索結果：<%= @rooms.size %>件</p>
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <div class="col-12 col-md-6 col-lg-4 mt-3">
+        <div class="card">
+          <%= image_tag room.img.url, class: "card-img-top Room_Card_Image", alt: "施設画像" %>
+          <div class="card-body Room_Card_Body bg-light">
+            <h3 class="card-title text-muted"><%= room.name %></h3>
+            <h6 class="card-subtitle text-secondary mb-4"><i class="bi bi-geo-alt-fill me-1"></i><%= room.address %></h6>
+            <p class="card-text Room_Card_Body_Introduction"><%= room.introduction %></p>
+            <div class="d-flex justify-content-between">
+              <p class="fs-3 m-0 fw-medium text-danger"><%= "#{number_to_currency(room.cost, :locale => "ja")}~" %></p>
+              <%= link_to "詳細はこちら", room_path(room), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
